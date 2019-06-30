@@ -5,7 +5,12 @@
 {% block content %}
 <h1>{{ sentence.sentence_text }}</h1>
 <section class="sentence-text">
-	{{ sentence.comment_text|linebreaksbr }}
+	<p>{{ sentence.comment_text|linebreaksbr }}</p>
+	{% if sentence.category %}
+	<p>{{ sentence.category.name }}</p>
+	{% else %}
+	<p>No category</p>
+	{% endif %}
     <p style="text-align: right">Author: {{ sentence.author }}</p>
 </section>
 <section class="sentence-date">

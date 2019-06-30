@@ -96,11 +96,11 @@ header .site-name a {
     color: #993333;
 }
 
-.sentence-list ul {
+.object-list ul {
     width: 100%;
 }
 
-.sentence-list ul li {
+.object-list ul li {
     margin-bottom: 8px;
     padding-bottom: 8px;
     border-bottom: 1px dotted #cccccc;
@@ -110,7 +110,7 @@ header .site-name a {
 	-o-text-overflow: ellipsis;
 }
 
-.sentence-list, .pagination {
+.object-list, .pagination {
 
 }
 
