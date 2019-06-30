@@ -10,7 +10,6 @@
 {% endif %}
 
 <h1>Sentences</h1>
-<p><a class="act" href="{% url 'sentences:create' %}">Add New Sentence</a></p></li>
 <section class="sentence-list">
     <ul>
         {% for sentence in sentence_list %}
@@ -44,5 +43,8 @@
         </li>
     </ul>
 </section>
+
+<p><a class="act" href="{% url 'sentences:create' %}">Add New Sentence</a></p></li>
+
 {% endif %}
 {% endblock %}
