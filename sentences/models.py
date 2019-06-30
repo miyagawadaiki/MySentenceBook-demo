@@ -13,9 +13,20 @@ class Category(models.Model):
         #default=timezone.now,
         auto_now_add=True,
     )
+    author = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE, 
+        null=True,
+    )
+    is_public = models.BooleanField('Go Publish', default = False)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        # https://docs.djangoproject.com/en/2.0/ref/class-based-views/generic-editing/
+        # return reverse('blogs:detail', kwargs={'pk': self.pk})
+        return reverse('sentences:cate_index')
 
 
 class Sentence(models.Model):

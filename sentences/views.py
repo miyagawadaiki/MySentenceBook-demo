@@ -99,8 +99,8 @@ class CategoryCreateView(LoginRequiredMixin, generic.edit.CreateView):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
         # https://docs.djangoproject.com/en/2.0/topics/class-based-views/generic-editing/#models-and-request-user
-        #form.instance.author = self.request.user
-        return super(CreateView, self).form_valid(form)
+        form.instance.author = self.request.user
+        return super(CategoryCreateView, self).form_valid(form)
 
 
 class CategoryUpdateView(LoginRequiredMixin, generic.edit.UpdateView):  # The LoginRequired mixin
@@ -111,11 +111,11 @@ class CategoryUpdateView(LoginRequiredMixin, generic.edit.UpdateView):  # The Lo
 
     def dispatch(self, request, *args, **kwargs):
         # ownership validation
-        #obj = self.get_object()
-        #if obj.author != self.request.user:
-        #    raise PermissionDenied('You do not have permission to edit.')
+        obj = self.get_object()
+        if obj.author != self.request.user and not(obj.is_public):
+            raise PermissionDenied('You do not have permission to edit.')
 
-        return super(UpdateView, self).dispatch(request, *args, **kwargs)
+        return super(CategoryUpdateView, self).dispatch(request, *args, **kwargs)
 
 
 class CategoryDeleteView(LoginRequiredMixin, generic.edit.DeleteView):  # The LoginRequired mixin
@@ -127,9 +127,9 @@ class CategoryDeleteView(LoginRequiredMixin, generic.edit.DeleteView):  # The Lo
     def dispatch(self, request, *args, **kwargs):
         # ownership validation
         obj = self.get_object()
-        if obj.author != self.request.user:
+        if obj.author != self.request.user and not(obj.is_public):
             raise PermissionDenied('You do not have permission to delete.')
 
-        return super(DeleteView, self).dispatch(request, *args, **kwargs)
+        return super(CategoryDeleteView, self).dispatch(request, *args, **kwargs)
 
 

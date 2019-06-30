@@ -15,8 +15,8 @@
 {# ownership #}
 {% if request.user.id == object.author_id %}
 <section class="sentence-edit">
-    <a class="act" href="{% url 'sentences:cate-update' category.pk %}">Edit</a>
-    <a class="act" href="{% url 'sentences:cate-delete' category.pk %}">Delete</a>
+    <a class="act" href="{% url 'sentences:cate_update' category.pk %}">Edit</a>
+    <a class="act" href="{% url 'sentences:cate_delete' category.pk %}">Delete</a>
 </section>
 {% endif %}
 <section>
