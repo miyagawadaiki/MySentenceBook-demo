@@ -5,7 +5,8 @@
 {% block content %}
 <h1>{{ sentence.sentence_text }}</h1>
 <section class="sentence-text">
-    <p>Author: {{ sentence.author }}</p>
+	{{ sentence.comment_text|linebreaksbr }}
+    <p style="text-align: right">Author: {{ sentence.author }}</p>
 </section>
 <section class="sentence-date">
     <p>Created:&nbsp;{{ sentence.created_date }}<span>/</span>Updated:&nbsp;{{ sentence.updated_date }}</p>

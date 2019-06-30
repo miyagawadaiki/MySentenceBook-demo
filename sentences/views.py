@@ -33,7 +33,7 @@ class DetailView(generic.DetailView):
 class CreateView(LoginRequiredMixin, generic.edit.CreateView):
     model = Sentence
     template_name = 'sentences/form.html'
-    fields = ['sentence_text']  # '__all__'
+    fields = ['sentence_text', 'comment_text']  # '__all__'
     #context_object_name = 'sentence'
 
     def form_valid(self, form):
@@ -47,7 +47,7 @@ class CreateView(LoginRequiredMixin, generic.edit.CreateView):
 class UpdateView(LoginRequiredMixin, generic.edit.UpdateView):  # The LoginRequired mixin
     model = Sentence
     template_name = 'sentences/form.html'
-    fields = ['sentence_text']  # '__all__'
+    fields = ['sentence_text', 'comment_text']  # '__all__'
     #context_object_name = 'sentence'
 
     def dispatch(self, request, *args, **kwargs):

@@ -7,6 +7,7 @@ from django.utils import timezone
 
 class Sentence(models.Model):
     sentence_text = models.CharField(max_length=300)
+    comment_text = models.CharField(max_length=200, default='No comment')
     created_date  = models.DateTimeField(
         'date created',
         #default=timezone.now,
