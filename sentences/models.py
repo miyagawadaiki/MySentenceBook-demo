@@ -5,6 +5,19 @@ from django.urls import reverse
 from django.utils import timezone
 
 
+class Category(models.Model):
+    name = models.CharField('Category', max_length=50)
+    description = models.TextField('Description', blank=True)
+    created_date  = models.DateTimeField(
+        'date created',
+        #default=timezone.now,
+        auto_now_add=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class Sentence(models.Model):
     sentence_text = models.CharField(max_length=300)
     comment_text = models.CharField(max_length=200, default='No comment')
@@ -21,6 +34,12 @@ class Sentence(models.Model):
     author = models.ForeignKey(
         'auth.User',
         on_delete=models.CASCADE, 
+    )
+
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.CASCADE,
+        null=True,
     )
 
 
