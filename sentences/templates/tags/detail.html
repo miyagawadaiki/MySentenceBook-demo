@@ -5,7 +5,7 @@
 {% block content %}
 <h1>{{ tag.name }}</h1>
 <section class="sentence-date">
-    <p>Created:&nbsp;{{ tag.used_date }}</p>
+    <p>Used:&nbsp;{{ tag.used_date }}</p>
 </section>
 {# ownership #}
 {% if request.user.id == object.author_id %}
