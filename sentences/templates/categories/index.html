@@ -19,7 +19,6 @@
         {% empty %}
         <li class="no-object">
             <p>No category yet.</p>
-            <p><a class="act" href="{% url 'sentences:cate_create' %}">Add New Sentence</a></p></li>
         {% endfor %}
     </ul>
 </section>
@@ -43,8 +42,8 @@
         </li>
     </ul>
 </section>
-
-<p><a class="act" href="{% url 'sentences:create' %}">Add New Sentence</a></p></li>
-
 {% endif %}
+
+<p><a class="act" href="{% url 'sentences:cate_create' %}">Add New Category</a></p></li>
+
 {% endblock %}
